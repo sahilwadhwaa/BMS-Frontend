@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/BMS-Frontend/static/css/main.9b1fd402.css",
+    "main.js": "/BMS-Frontend/static/js/main.54d3e68f.js",
+    "static/js/787.60235f71.chunk.js": "/BMS-Frontend/static/js/787.60235f71.chunk.js",
+    "index.html": "/BMS-Frontend/index.html",
+    "main.9b1fd402.css.map": "/BMS-Frontend/static/css/main.9b1fd402.css.map",
+    "main.54d3e68f.js.map": "/BMS-Frontend/static/js/main.54d3e68f.js.map",
+    "787.60235f71.chunk.js.map": "/BMS-Frontend/static/js/787.60235f71.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b1fd402.css",
+    "static/js/main.54d3e68f.js"
+  ]
+}
