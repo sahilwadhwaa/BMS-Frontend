@@ -1,5 +1,5 @@
 import React from "react";
-
+//component specifically made to be rendered in Seats.js which renders the input tags for entering the number of seats
 export const SeatSlot = ({ seatName, cb }) => {
   const handleChange = (e) => {
     const seatData = {

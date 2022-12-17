@@ -1,3 +1,4 @@
+//harcoded data that will be displayed on the User's screen
 let movies = [
   "Suraj par mangal bhari",
   "Tenet",

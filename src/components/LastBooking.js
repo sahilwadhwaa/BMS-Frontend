@@ -1,7 +1,8 @@
 import React from "react";
 
+//this component renders the Last Booking details fetched from the Database when the submit button is clicked.
 const LastBooking = ({ data }) => {
-  return (
+  return  (
     <>
       {data.length === 0 || !data ? (
         <p style={{ color: "red" }}>No Previous Booking Found!</p>

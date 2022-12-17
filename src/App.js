@@ -1,11 +1,15 @@
 import "./App.css";
+//importing useState, useEffect
 import { useState, useEffect } from "react";
+//importing different components of the App
 import ContentContainer from "./components/ui/ContentContainer";
 import Slots from "./components/Slots";
 import data from "./components/data/data";
-
 import LastBooking from "./components/LastBooking";
 import { Seats } from "./components/Seats";
+
+//loader imported
+import LoadingSpinner from "./components/ui/LoadingSpinner";
 
 function App() {
   // initial state of our app 
@@ -17,6 +21,9 @@ function App() {
 
   //this state will save the fetched data
   const [fetchedData, setfetchedData] = useState([]);
+
+  //state for the loader
+  const [isLoading, setLoading] = useState(false)
 
   // requiring the data provided to select from
   const { movies, slots, seats } = data;
@@ -73,15 +80,20 @@ function App() {
         return setfetchedData(data);
       })
 
+      .then((data) => {
+        return setLoading(false);
+      })
+
       .catch((err) => console.log(err));
-  };
+      
+  }
 
   // this will run when the component will mount and update the state ultimately setting up the state to show the last booking
   useEffect(() => {
     getData();
   }, []);
 
-  // these functions updates the state
+  // these functions update the state of the movie data
   const handleMovie = (selectedMovie) => {
     setmovieData((prev) => {
       return {
@@ -102,11 +114,13 @@ function App() {
   // ///////////////////////////////////
   // this function handle the submit event which will send data to the server
   const handleSubmit = () => {
+    
     const { movie, seat, timeSlot } = movieData;
     if (movie === "" || timeSlot === "" || seat.length <= 0) {
       alert("Please select every field to continue further");
       return;
-    }
+    } else setLoading(true)
+
     return handelPost(movieData);
   };
 
@@ -141,12 +155,17 @@ function App() {
           </ContentContainer>
 
           <div className="submit-btn">
-            <button onClick={handleSubmit}>Submit!</button>
+            <button onClick={handleSubmit}><b>Submit!</b></button>
 
           </div>
         </div>
         <div className="right">
+        {
+          isLoading ? 
+          <LoadingSpinner />
+          : 
           <LastBooking data={fetchedData} />
+          }
         </div>
       </div>
     </div>
